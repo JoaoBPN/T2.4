@@ -1,39 +1,32 @@
 package Modelos;
 
-public abstract class Funcionario implements TemSalario{
+import java.math.BigDecimal;
 
-    private String nome;
-    private String registroGeral;
-    private double salarioBase;
+public abstract class Funcionario{
 
-    public Funcionario(String nome,String registroGeral,double salarioBase){
-        setNome(nome);
-        setRegistroGeral(registroGeral);
-        setSalarioBase(salarioBase);
-    }
+    private final String nome;
+    private final String rG;
+    private final BigDecimal salario;
 
-    public void setNome(String nome) {
+    public Funcionario(String nome, String rG,BigDecimal salario){
         this.nome = nome;
+        this.rG = rG;
+        this.salario = salario;
     }
 
-    public String getNome(){
-        return this.nome;
+    public String getNome() {
+        return nome;
     }
 
-    public void setRegistroGeral(String registroGeral){
-        this.registroGeral = registroGeral;
+    public String getRG() {
+        return rG;
     }
 
-    public String getRegistroGeral(){
-        return this.registroGeral;
+    public BigDecimal getSalario(){
+        return salario;
     }
 
-    public void setSalarioBase(double salarioBase) {
-        this.salarioBase = salarioBase;
-    }
-
-    public double getSalarioBase(){
-        return this.salarioBase;
-    }
-
+    public abstract void incrementaAtributo(int incremento);
+    public abstract void encerraMes();
+    public abstract BigDecimal calculaSalario();
 }
